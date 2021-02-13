@@ -82,6 +82,16 @@ public class EstimateService {
                 + getBoxForPackage(dto.getBicycle(), PackageType.BICYCLE)
                 + getBoxForPackage(dto.getWashingMachine(), PackageType.WASHING_MACHINE);
 
+        // 箱が大きい方のトラックの最大搭載数 maxBox を超えた場合、
+        // トラックは boxes/maxBox 台必要で、
+        // boxesの余り、boxes%maxBox に応じてトラック一台の種類が変わる。
+        int truckNum = 1;
+        int maxBox = estimateDAO.getMaxBox();
+        if ( boxes > maxBox ) {
+            truckNum += boxes/maxBox;
+            boxes %= maxBox;
+        }
+
         // 箱に応じてトラックの種類が変わり、それに応じて料金が変わるためトラック料金を算出する。
         int pricePerTruck = estimateDAO.getPricePerTruck(boxes);
 
@@ -92,7 +102,7 @@ public class EstimateService {
             priceForOptionalService = estimateDAO.getPricePerOptionalService(OptionalServiceType.WASHING_MACHINE.getCode());
         }
 
-        return priceForDistance + pricePerTruck + priceForOptionalService;
+        return priceForDistance + pricePerTruck + priceForOptionalService + (truckNum-1)*estimateDAO.getPricePerMaxTruck();
     }
 
     /**

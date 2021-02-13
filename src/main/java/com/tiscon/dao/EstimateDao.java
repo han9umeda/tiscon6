@@ -123,6 +123,28 @@ public class EstimateDao {
     }
 
     /**
+     * 段ボール箱のトラック搭載上限を取得する。
+     *
+     * @return 段ボール数
+     */
+    public int getMaxBox(){
+        String sql = "SELECT MAX_BOX FROM TRUCK_CAPACITY ORDER BY MAX_BOX DESC LIMIT 1";
+        SqlParameterSource paramSource = new MapSqlParameterSource();
+        return parameterJdbcTemplate.queryForObject(sql, paramSource, Integer.class);
+    }
+
+    /**
+     * 大きい方のトラック一台あたりの値段を取得する。
+     *
+     * @return 値段
+     */
+    public int getPricePerMaxTruck(){
+        String sql = "SELECT PRICE FROM TRUCK_CAPACITY ORDER BY MAX_BOX DESC LIMIT 1";
+        SqlParameterSource paramSource = new MapSqlParameterSource();
+        return parameterJdbcTemplate.queryForObject(sql, paramSource, Integer.class);
+    }
+
+    /**
      * 段ボール数に応じたトラック料金を取得する。
      *
      * @param boxNum 総段ボール数
