@@ -37,19 +37,19 @@ public class UserOrderForm {
     private String newAddress;
 
     @Numeric
-    @NotBlank
+    //@NotBlank
     private String box;
 
     @Numeric
-    @NotBlank
+    //@NotBlank
     private String bed;
 
     @Numeric
-    @NotBlank
+    //@NotBlank
     private String bicycle;
 
     @Numeric
-    @NotBlank
+    //@NotBlank
     private String washingMachine;
 
     @NotNull
@@ -111,16 +111,25 @@ public class UserOrderForm {
         this.newAddress = newAddress;
     }
 
-    public String getBox() {
-        return box;
-    }
 
+    public String getBox() {
+        if (box == "") return "0";
+        else return box;
+    }
+    /*public String getBox() {return box;}*/
+
+    /*public void setBox(String box) {
+        if (box != "") {this.box = box;}
+        else {this.box = "0";}
+    }*/
     public void setBox(String box) {
         this.box = box;
     }
 
+
     public String getBed() {
-        return bed;
+        if (bed == "") return "0";
+        else return bed;
     }
 
     public void setBed(String bed) {
@@ -128,7 +137,8 @@ public class UserOrderForm {
     }
 
     public String getBicycle() {
-        return bicycle;
+        if (bicycle == "") return "0";
+        else return bicycle;
     }
 
     public void setBicycle(String bicycle) {
@@ -136,7 +146,8 @@ public class UserOrderForm {
     }
 
     public String getWashingMachine() {
-        return washingMachine;
+        if (washingMachine == "") return "0";
+        else return washingMachine;
     }
 
     public void setWashingMachine(String washingMachine) {
