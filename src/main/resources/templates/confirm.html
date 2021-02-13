@@ -26,13 +26,17 @@
         <tbody>
         <tr>
           <th style="width: 40%">氏名</th>
-          <td><span th:text="*{customerName}"></span></td>
-          <input type="hidden" name="customerName" id="customerName" th:value="*{customerName}"/>
+          <td><span th:text="*{customerName}"></span>
+            <input type="hidden" name="customerName" id="customerName" th:value="*{customerName}"/>
+            <span th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}" style="color: red"></span>
+          </td>
         </tr>
         <tr>
           <th>連絡先TEL</th>
-          <td><span th:text="*{tel}"></span></td>
-          <input type="hidden" name="tel" id="tel" th:value="*{tel}"/>
+          <td><span th:text="*{tel}"></span>
+            <input type="hidden" name="tel" id="tel" th:value="*{tel}"/>
+            <span th:if="${#fields.hasErrors('tel')}" th:errors="*{tel}" style="color: red"></span>
+          </td>
         </tr>
         <tr>
           <th>連絡先メールアドレス</th>
