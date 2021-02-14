@@ -5,7 +5,9 @@ body {
     padding: 0;
     margin: 0;
 }
-
+td.noncolor{
+    border-style:hidden;
+}
 .jumbotron {
     background-repeat: no-repeat;
     background-position: calc(60%) calc(70%);
