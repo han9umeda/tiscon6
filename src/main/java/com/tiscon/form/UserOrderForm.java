@@ -36,6 +36,9 @@ public class UserOrderForm {
     @NotBlank
     private String newAddress;
 
+    @NotBlank
+    private String moveDay;
+
     @Numeric
     @NotBlank
     private String box;
