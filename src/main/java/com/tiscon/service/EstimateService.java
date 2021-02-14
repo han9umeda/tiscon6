@@ -82,9 +82,9 @@ public class EstimateService {
                 + getBoxForPackage(dto.getBicycle(), PackageType.BICYCLE)
                 + getBoxForPackage(dto.getWashingMachine(), PackageType.WASHING_MACHINE);
 
-        // 箱が大きい方のトラックの最大搭載数 maxBox を超えた場合、
-        // トラックは boxes/maxBox 台必要で、
-        // boxesの余り、boxes%maxBox に応じてトラック一台の種類が変わる。
+        // 大きい方のトラックの最大搭載数(maxBox)を箱数(boxes)が超えた場合、
+        // トラックは(boxes/maxBox)台必要で、
+        // boxesの余り、(boxes%maxBox)に応じてトラック一台の種類が変わる。
         int truckNum = 1;
         int maxBox = estimateDAO.getMaxBox();
         if ( boxes > maxBox ) {
