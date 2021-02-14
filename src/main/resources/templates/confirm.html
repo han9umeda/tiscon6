@@ -84,6 +84,7 @@
           <th style="width: 40%">段ボールの個数</th>
           <td><span th:text="*{box}"></span>
             <input type="hidden" name="box" id="box" th:value="*{box}"/>
+
             <span th:if="${#fields.hasErrors('box')}" th:errors="*{box}" style="color: red"></span>
           </td>
         </tr>
