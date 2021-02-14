@@ -119,6 +119,13 @@ public class UserOrderForm {
         this.newAddress = newAddress;
     }
 
+    public String getMoveDay() {
+        return moveDay;
+    }
+
+    public void setMoveDay(String moveDay) {
+        this.moveDay = moveDay;
+    }
 
     public String getBox() {
         if (box == "") return "0";
