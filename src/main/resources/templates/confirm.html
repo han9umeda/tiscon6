@@ -31,8 +31,11 @@
         </tr>
         <tr>
           <th>連絡先TEL</th>
-          <td><span th:text="*{tel}"></span></td>
-          <input type="hidden" name="tel" id="tel" th:value="*{tel}"/>
+          <td><span th:text="*{tel}"></span>
+            <input type="hidden" name="tel" id="tel" th:value="*{tel}"/>
+          </td>
+          <td bgcolor="#edf9f9" style="border-style:none"><span th:if="${#fields.hasErrors('tel')}" th:errors="*{tel}" style="color: blue" ></span>
+          </td>
         </tr>
         <tr>
           <th>連絡先メールアドレス</th>
