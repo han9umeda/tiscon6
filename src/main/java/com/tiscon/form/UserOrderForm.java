@@ -5,6 +5,7 @@ import com.tiscon.validator.Numeric;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * 顧客が入力する見積もり情報を保持するクラス。
@@ -40,19 +41,23 @@ public class UserOrderForm {
     private String moveDay;
 
     @Numeric
-    @NotBlank
+    //@NotBlank
+    @Size(max=3)
     private String box;
 
     @Numeric
-    @NotBlank
+    //@NotBlank
+    @Size(max=3)
     private String bed;
 
     @Numeric
-    @NotBlank
+    //@NotBlank
+    @Size(max=3)
     private String bicycle;
 
     @Numeric
-    @NotBlank
+    //@NotBlank
+    @Size(max=3)
     private String washingMachine;
 
     @NotNull
@@ -114,16 +119,20 @@ public class UserOrderForm {
         this.newAddress = newAddress;
     }
 
+
     public String getBox() {
-        return box;
+        if (box == "") return "0";
+        else return box;
     }
 
     public void setBox(String box) {
         this.box = box;
     }
 
+
     public String getBed() {
-        return bed;
+        if (bed == "") return "0";
+        else return bed;
     }
 
     public void setBed(String bed) {
@@ -131,7 +140,8 @@ public class UserOrderForm {
     }
 
     public String getBicycle() {
-        return bicycle;
+        if (bicycle == "") return "0";
+        else return bicycle;
     }
 
     public void setBicycle(String bicycle) {
@@ -139,7 +149,8 @@ public class UserOrderForm {
     }
 
     public String getWashingMachine() {
-        return washingMachine;
+        if (washingMachine == "") return "0";
+        else return washingMachine;
     }
 
     public void setWashingMachine(String washingMachine) {
