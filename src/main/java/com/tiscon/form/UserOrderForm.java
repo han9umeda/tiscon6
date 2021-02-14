@@ -121,12 +121,7 @@ public class UserOrderForm {
         if (box == "") return "0";
         else return box;
     }
-    /*public String getBox() {return box;}*/
 
-    /*public void setBox(String box) {
-        if (box != "") {this.box = box;}
-        else {this.box = "0";}
-    }*/
     public void setBox(String box) {
         this.box = box;
     }
