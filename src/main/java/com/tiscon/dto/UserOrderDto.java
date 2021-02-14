@@ -16,6 +16,8 @@ public class UserOrderDto {
 
     private String newAddress;
 
+    private String moveDay;
+
     private String box;
 
     private String bed;
@@ -80,6 +82,15 @@ public class UserOrderDto {
 
     public void setNewAddress(String newAddress) {
         this.newAddress = newAddress;
+    }
+
+    public String getMoveDay() { return moveDay; }
+
+    public void setMoveDay(String moveDay) { this.moveDay = moveDay; }
+
+    public String getMonth() {
+        String[] dayArray = this.moveDay.split("-");
+        return dayArray[1];
     }
 
     public int getBox() {
