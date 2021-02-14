@@ -15,9 +15,9 @@
 <div class="container">
   <form th:action="@{/result}" th:object="${userOrderForm}" class="form-horizontal" method="post">
     <h1>お見積り情報確認</h1>
-    <ul th:if="${#fields.hasErrors('all')}">
+   <!-- <ul th:if="${#fields.hasErrors('all')}">
       <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>
-    </ul>
+    </ul> -->
     <div class="col-sm-12">
       <h4>個人情報</h4>
       <table class="table table-bordered">
@@ -82,25 +82,31 @@
         <tbody>
         <tr>
           <th style="width: 40%">段ボールの個数</th>
-          <td><span th:text="*{box}"></span></td>
-          <input type="hidden" name="box" id="box" th:value="*{box}"/>
+          <td><span th:text="*{box}"></span>
+            <input type="hidden" name="box" id="box" th:value="*{box}"/>
+            <span th:if="${#fields.hasErrors('box')}" th:errors="*{box}" style="color: red"></span>
+          </td>
         </tr>
         <tr>
           <th>ベッドの個数</th>
-          <td><span th:text="*{bed}"></span></td>
-          <input type="hidden" name="bed" id="bed" th:value="*{bed}"/>
+          <td><span th:text="*{bed}"></span>
+            <input type="hidden" name="bed" id="bed" th:value="*{bed}"/>
+            <span th:if="${#fields.hasErrors('bed')}" th:errors="*{bed}" style="color: red"></span>
+          </td>
         </tr>
         <tr>
           <th>自転車の個数</th>
-          <td><span th:text="*{bicycle}"></span></td>
-          <input type="hidden" name="bicycle" id="bicycle" th:value="*{bicycle}"/>
+          <td><span th:text="*{bicycle}"></span>
+            <input type="hidden" name="bicycle" id="bicycle" th:value="*{bicycle}"/>
+            <span th:if="${#fields.hasErrors('bicycle')}" th:errors="*{bicycle}" style="color: red"></span>
+          </td>
         </tr>
         <tr>
           <th>洗濯機の個数</th>
-          <td><span th:text="*{washingMachine}"></span> </td>
+          <td><span th:text="*{washingMachine}"></span>
             <input type="hidden" name="washingMachine" id="washingMachine" th:value="*{washingMachine}"/>
-            <!-- <span th:if="${#fields.hasErrors('washingMachine')}" th:errors="*{washingMachine}" style="color: red"></span>
-          </td> -->
+            <span th:if="${#fields.hasErrors('washingMachine')}" th:errors="*{washingMachine}" style="color: red"></span>
+          </td>
         </tr>
         <tr>
           <th>洗濯機の設置工事申し込み</th>
