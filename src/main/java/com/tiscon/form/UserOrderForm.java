@@ -38,7 +38,9 @@ public class UserOrderForm {
     private String newAddress;
 
     @NotBlank
-    private String moveDay;
+    private String moveDate;
+
+
 
     @Numeric
     //@NotBlank
@@ -119,12 +121,12 @@ public class UserOrderForm {
         this.newAddress = newAddress;
     }
 
-    public String getMoveDay() {
-        return moveDay;
+    public String getMoveDate() {
+        return moveDate;
     }
 
-    public void setMoveDay(String moveDay) {
-        this.moveDay = moveDay;
+    public void setMoveDate(String moveDate) {
+        this.moveDate = moveDate;
     }
 
     public String getBox() {

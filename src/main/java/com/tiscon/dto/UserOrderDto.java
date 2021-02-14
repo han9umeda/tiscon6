@@ -16,6 +16,12 @@ public class UserOrderDto {
 
     private String newAddress;
 
+    private String moveDate;
+
+    private String moveYear;
+
+    private String moveMonth;
+
     private String moveDay;
 
     private String box;
@@ -84,14 +90,36 @@ public class UserOrderDto {
         this.newAddress = newAddress;
     }
 
-    public String getMoveDay() { return moveDay; }
+    public String getMoveDate() { return moveDate; }
+
+    public void setMoveDate(String moveDate) { this.moveDate = moveDate; }
+
+    public String getMoveYear() {
+        String[] dayArray = this.moveDate.split("-");
+        return dayArray[0];
+    }
+
+    public void setMoveYear(String moveYear) { this.moveYear = moveYear; }
+
+    public String getMoveMonth() {
+        String[] dayArray = this.moveDate.split("-");
+        return dayArray[1];
+    }
+
+    public void setMoveMonth(String moveMonth) { this.moveMonth = moveMonth; }
+
+    public String getMoveDay() {
+        String[] dayArray = this.moveDate.split("-");
+        return dayArray[2];
+    }
 
     public void setMoveDay(String moveDay) { this.moveDay = moveDay; }
 
+    /*
     public String getMonth() {
         String[] dayArray = this.moveDay.split("-");
         return dayArray[1];
-    }
+    }*/
 
     public int getBox() {
         return Integer.parseInt(box);

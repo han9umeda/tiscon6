@@ -99,7 +99,7 @@ public class EstimateService {
 
         // 季節係数を出す．以下の行を編集．
         double seasonCoefficient=0;
-        String moveMonth=dto.getMonth();
+        String moveMonth=dto.getMoveMonth();
 
         if("03".equals(moveMonth) || "04".equals(moveMonth)){
             seasonCoefficient=1.5;
